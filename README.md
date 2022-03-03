@@ -2,7 +2,7 @@
 Ember Fox Studios is own and operated by Bella Weiss and Tyler Ullery and we are comitted to creating open source projects to help the Unity community. This project will be a simple package you can add to a project and import the features that will help jumpstart your project. These files are not meant to allow you to make a full game as is but provide a framework and a starting place to get your project started.
 
 # Built With
-- [Unity3D](https://unity.com/) V 2019.4.30F1
+- [Unity3D](https://unity.com/) v 2019.4.30F1
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 
 # Contributing
