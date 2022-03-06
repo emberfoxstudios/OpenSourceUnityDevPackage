@@ -26,7 +26,7 @@ SOFTWARE.
 // Art
 /*
 
-                  _ _.-'`-._ _
+                 _ _.-'`-._ _
                 ;.'________'.;
      _________n.[____________].n_________
     |""_""_""_""||==||==||==||""_""_""_""]
@@ -49,6 +49,7 @@ Please add your name or chosen online name and upt to 1 link in the below list i
 Contributors:
 
 Bella Weiss @ Ember Fox Studios
+Oliver Mills
 */
 
 
@@ -72,11 +73,9 @@ public class FirstPerson3DLook : MonoBehaviour
 
     //Inspector Controlled Variables.
 
-    [SerializeField]
     [Tooltip("Controls how sensitive the look controls are. 100f by default.")]
     public float sensitivity = 100f;
 
-    [SerializeField]
     [Tooltip("Reference to the player object for the camera to rotate via player input.")]
     public Transform playerObject;
 
@@ -93,7 +92,11 @@ public class FirstPerson3DLook : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Moves the position of the x and y axis when gvien input from the user
+    /// Input.GetAxis: You can use arrow keys, wasd, or a controller to give a value between -1 and 1
+    /// Time.deltaTime: The time between frames. Used so if there are frame drops the movement stays consistent
+    /// </summary>
     void AxisCheck()
     {
         // Check X Axis
@@ -104,6 +107,9 @@ public class FirstPerson3DLook : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Rotates the player based on the horizontal input
+    /// </summary>
     void RotatePlayerObj()
     {
         playerObject.Rotate(Vector3.up * lookX);
