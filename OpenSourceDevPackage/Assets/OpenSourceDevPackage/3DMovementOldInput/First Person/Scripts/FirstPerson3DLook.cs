@@ -70,6 +70,11 @@ public class FirstPerson3DLook : MonoBehaviour
     /// </summary>
     private float mouseY;
 
+    //Inspector Controlled Variables.
+
+    [SerializeField]
+    [Tooltip("Controls how sensitive the look controls are. 100f by default.")]
+    public float sensitivity = 100f;
 
 
     void Update()
