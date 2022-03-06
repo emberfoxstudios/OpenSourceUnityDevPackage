@@ -61,14 +61,14 @@ public class FirstPerson3DLook : MonoBehaviour
     //Variable Start
 
     /// <summary>
-    /// Store current X axis from the mouse.
+    /// Store current X axis from input.
     /// </summary>
-    private float mouseX;
+    private float lookX;
 
     /// <summary>
-    /// Store current Y axis from the mouse.
+    /// Store current Y axis from the input.
     /// </summary>
-    private float mouseY;
+    private float lookY;
 
     //Inspector Controlled Variables.
 
@@ -76,11 +76,19 @@ public class FirstPerson3DLook : MonoBehaviour
     [Tooltip("Controls how sensitive the look controls are. 100f by default.")]
     public float sensitivity = 100f;
 
+    [SerializeField]
+    [Tooltip("Reference to the player object for the camera to rotate via player input.")]
+    public Transform playerObject;
+
 
     void Update()
     {
         //Check X and Y Axis
         AxisCheck();
+
+        //Apply Rotation to Player OBJ
+        RotatePlayerObj();
+
     }
 
 
@@ -89,11 +97,16 @@ public class FirstPerson3DLook : MonoBehaviour
     void AxisCheck()
     {
         // Check X Axis
-        mouseX = Input.GetAxis("Horizontal");
+        lookX = Input.GetAxis("Horizontal") * sensitivity * Time.deltaTime;
 
         // Check Y Axis
-        mouseY = Input.GetAxis("Vertical");
+        lookY = Input.GetAxis("Vertical") * sensitivity * Time.deltaTime;
 
+    }
+
+    void RotatePlayerObj()
+    {
+        playerObject.Rotate(Vector3.up * lookX);
     }
 }
 
